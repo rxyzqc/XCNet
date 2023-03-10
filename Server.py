@@ -1,7 +1,6 @@
 import threading
 import time
 
-import requests
 import socket
 import os
 
@@ -18,28 +17,10 @@ clients = []
 online_clients = []
 
 HELP_MENU = """
-help  # Help menu
-clear # Clear console
-clients  # Client count
+help    # Help menu
+clear   # Clear console
+clients # Client count
 """
-
-
-def check_key(key):
-    url = "https://replit.com/@rxyzqc/key/raw/keys.txt"
-    r = requests.get(url)
-    if r.status_code == 200:
-        keys = r.text.split()
-        print(keys)
-        if key in keys:
-            return True
-    return False
-
-
-key = input("Enter your key: ")
-if check_key(key):
-    print("Access Granted\n")
-else:
-    print("Access denied\n")
 
 
 def handle_connections():
